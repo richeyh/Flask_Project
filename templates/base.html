@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	{% block CustomJS %}
+	{% endblock %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='fullcalendar.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
+	<script src="{{ url_for('static', filename='jquery-1.11.3.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='moment.js') }}"></script>
+	<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='fullcalendar.min.js') }}"></script>
+	{% block CustomCSS %}
+	{% endblock %}
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+	<a class="navbar-brand" href="#">Social Planner</a>
+	<ul class="nav nav-pills">
+  		<li role="presentation"><a href="{{url_for('.Fin')}}">Finalized</a></li>
+  		<li role="presentation"><a href="{{ url_for('.Pro')}}">Prospective</a></li>
+	</ul>
+</nav>
+	<div class="col-md-12">
+		{% block content%}
+		{% endblock %}
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			{% block javascript %}
+			{% endblock %}
+		});
+	</script>
+</body>
+	
+</html>

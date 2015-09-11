@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+	<center><h1>This is the {{type}} calendar</h1></center>
+	<div id='calendar'></div> 
+{% endblock %}
+{% block javascript %}
+	cal = $('#calendar').fullCalendar({
+        events: [
+        {% for event in events %}
+        {
+        title: '{{event.title}}',
+        start: '{{event.start}}',
+        end: '{{event.end}}',
+        {% if event.allday%}
+        	allday: true,
+        {% else %}
+        	allday: false,
+        {% endif %}
+        source: '{{event.source}}',
+        color: '{{event.color}}',
+        url: '{{url_for('.Event',event_id=event.id)}}',
+        backgroundColor:  '{{event.backgroundColor}}',
+        borderColor: '{{event.borderColor}}',
+        textColor: '{{event.textColor}}'
+        },
+        {% endfor %}
+
+        ]
+    });
+    size = $(window).height()*.7;
+   	cal.fullCalendar('option', 'contentHeight', size);
+   	cal.fullCalendar('render');
+{% endblock %}
