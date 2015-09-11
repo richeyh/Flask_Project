@@ -46,3 +46,5 @@ migrations
 Portal.egg-info
 config.py
 config.pyc
+dist/Flask_Project-0.1.0-py2.7.egg
+*.egg
