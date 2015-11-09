@@ -1,11 +1,1 @@
-language: python
-sudo: false
-python:
-- 2.6
-- 2.7
-before_install:
--pip install -r requirments.txt
-- mysql -e "create database IF NOT EXISTS testdb;" -uroot
-services:
-  - mysql
-
+SQLALCHEMY_DATABASE_URI ="mysql://travis:root@127.0.0.1/testdb"

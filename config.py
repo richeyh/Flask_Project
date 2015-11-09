@@ -1,1 +1,0 @@
-SQLALCHEMY_DATABASE_URI ="mysql://travis:root@127.0.0.1/testdb"
