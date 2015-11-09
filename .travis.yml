@@ -1,0 +1,11 @@
+language: python
+sudo: false
+python:
+- 2.6
+- 2.7
+before_install:
+-pip install -r requirments.txt
+- mysql -e "create database IF NOT EXISTS testdb;" -uroot
+services:
+  - mysql
+
